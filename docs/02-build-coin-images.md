@@ -26,13 +26,15 @@ Build the `spiddy/coin:v2.0` Image using this [Dockerfile-v2.0](../images/coin/D
 docker build -f images/coin/Dockerfile-v2.0 -t spiddy/coin:v2 images/coin/
 ```
 
+> NOTE: The images are also prebuild and pushed on [Docker Hub](https://hub.docker.com/r/spiddy/coin/tags/)
+
 ## Run Coin
 
 Run a coin app and expose it on port `:8080`
 
 ```shell
 docker run --name coin -d -p 8080:80 spiddy/coin:v1.0
-curl localhost:8080
+curl -v localhost:8080
 ```
 
 Clean up
