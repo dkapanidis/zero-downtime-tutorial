@@ -85,7 +85,8 @@ minikube   Ready     <none>    1m        v1.8.0
 Download this repository to be able to run the commads locally:
 
 ```shell
-git clone 
+git clone https://github.com/spiddy/zero-downtime-tutorial.git
+cd zero-downtime-tutorial
 ```
 
 Next steps assume you're on the root directory of this repo.
