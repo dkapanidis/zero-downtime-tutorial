@@ -18,8 +18,8 @@ docker build -t coin:v1 images/coin/
 
 ## Build Coin with Health Check (coin:v2)
 
-Build the `coin:v2` Image using this [Dockerfile-v2](../images/coin/Dockerfile-v2):
+Build the `coin:v2` Image using this [Dockerfile.v2](../images/coin/Dockerfile.v2):
 
 ```shell
-docker build -f images/coin/Dockerfile-v2 -t coin:v2 images/coin/
+docker build -f images/coin/Dockerfile.v2 -t coin:v2 images/coin/
 ```
