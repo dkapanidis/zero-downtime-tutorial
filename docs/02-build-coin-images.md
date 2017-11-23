@@ -1,4 +1,6 @@
-# Build Coin Images
+# Build Container Images
+
+## Coin
 
 Coin is a web server that listens on port `:80`, faulty by design:
 
@@ -8,18 +10,34 @@ Coin is a web server that listens on port `:80`, faulty by design:
   * On failure:
     * I always respond 500 on a GET request
 
-## Build Coin without Health check (coin:v1)
+### Build Coin without Health check (spiddy/coin:v1.0)
 
-Build the `coin:v1` Image with the [server.go](../images/coin/server.go) go app using this [Dockerfile](../images/coin/Dockerfile):
+Build the `spiddy/coin:v1.0` Image with the [server.go](../images/coin/server.go) go app using this [Dockerfile](../images/coin/Dockerfile):
 
 ```shell
-docker build -t coin:v1 images/coin/
+docker build -t spiddy/coin:v1.0 images/coin/
 ```
 
-## Build Coin with Health Check (coin:v2)
+### Build Coin with Health Check (spiddy/coin:v2.0)
 
-Build the `coin:v2` Image using this [Dockerfile.v2](../images/coin/Dockerfile.v2):
+Build the `spiddy/coin:v2.0` Image using this [Dockerfile-v2.0](../images/coin/Dockerfile-v2.0):
 
 ```shell
-docker build -f images/coin/Dockerfile.v2 -t coin:v2 images/coin/
+docker build -f images/coin/Dockerfile-v2.0 -t spiddy/coin:v2 images/coin/
+```
+
+## Run Coin
+
+Run a coin app and expose it on port `:8080`
+
+```shell
+docker run --name coin -d -p 8080:80 spiddy/coin:v1.0
+curl localhost:8080
+```
+
+Clean up
+
+```shell
+docker stop coin
+docker rm coin
 ```
