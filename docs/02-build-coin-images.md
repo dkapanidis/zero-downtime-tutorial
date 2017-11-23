@@ -10,7 +10,7 @@ Coin is a web server that listens on port `:80`, faulty by design:
 
 ## The code
 
-The Code is the following:
+The code is located at `images/coin` and is the following:
 
 `server.go`
 
@@ -61,4 +61,24 @@ RUN apk -U add curl
 COPY --from=build /go/server /server
 EXPOSE 80
 CMD ["/server"]
+```
+
+To build the `coin:v1` (No health checks) image:
+
+```shell
+cd images/coin
+docker build -t coin:v1 .
+```
+
+In the next version we add a health check on the `Dockerfile-v2`:
+
+```Dockerfile
+...
+HEALTHCHECK --interval=30s --timeout=3s CMD curl --silent --fail http://localhost/ || exit 1
+```
+
+To build the `coin:v2` (health check included) image:
+
+```shell
+docker build -f Dockerfile-v2 -t coin:v2 .
 ```
