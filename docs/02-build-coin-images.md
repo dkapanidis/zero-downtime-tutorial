@@ -10,7 +10,7 @@ Coin is a web server that listens on port `:80`, faulty by design:
   * On failure:
     * I always respond 500 on a GET request
 
-### Build Coin without Health check (spiddy/coin:v1.0)
+### Build Coin without Health check
 
 Build the `spiddy/coin:v1.0` Image with the [server.go](../images/coin/server.go) go app using this [Dockerfile](../images/coin/Dockerfile):
 
@@ -18,7 +18,7 @@ Build the `spiddy/coin:v1.0` Image with the [server.go](../images/coin/server.go
 docker build -t spiddy/coin:v1.0 images/coin/
 ```
 
-### Build Coin with Health Check (spiddy/coin:v2.0)
+### Build Coin with Health Check
 
 Build the `spiddy/coin:v2.0` Image using this [Dockerfile-v2.0](../images/coin/Dockerfile-v2.0):
 
