@@ -47,3 +47,47 @@ $ minikube ip
 ```
 
 Open browser to `http://MINIKUBE_IP:STATUSPAGE_PORT`
+
+## Scale Up Coins
+
+```shell
+$ kubectl scale deployment coin --replicas=10
+deployment "coin" scaled
+```
+
+Check Pods
+
+```shell
+$ kubectl get pods
+
+```
+
+Check output of Coin
+
+```shell
+repeat 10 echo $(curl -s 192.168.99.100:30367)
+```
+
+## Activate Health Checks to Coins
+
+We'll now reconfigure existing Coin deployment with [new configuration](../kubernetes-with-healthchecks/coin-deployment-with-healthchecks.yaml) that includes LivenessProbe and ReadinessProbe:
+
+```shell
+$ kubectl apply -f kubernetes-with-healthchecks/
+deployment "coin" configured
+```
+
+Check Pods
+
+```shell
+$ watch kubectl get pod
+NAME                          READY     STATUS    RESTARTS   AGE
+coin-6bd789f884-dlzgx         1/1       Running   0          8m
+statuspage-7656d9bfd6-qfwm9   1/1       Running   0          13m
+```
+
+Check output of Coin
+
+```shell
+repeat 10 echo $(curl -s 192.168.99.100:30367)
+```

@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: coin
+  name: coin
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: coin
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: coin
+    spec:
+      containers:
+      - image: spiddy/coin
+        imagePullPolicy: IfNotPresent
+        name: coin
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1
