@@ -4,6 +4,11 @@ Docker Swarm is the orchestrator of Docker containers.
 
 We've defined a stack on [docker-stack.yaml](../swarm/docker-stack.yaml)
 
+The stack deploys
+
+* Coin and exposes it on port `:8080` locally
+* a Status Page that displays the Coin health and exposes it on port `:9000` locally
+
 ```shell
 docker stack deploy -c swarm/docker-stack.yaml zerodowntime
 ```
