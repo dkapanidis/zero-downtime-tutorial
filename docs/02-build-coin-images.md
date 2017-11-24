@@ -19,6 +19,7 @@ docker build -t spiddy/coin:v1.0 -t spiddy/coin:v2.0 images/coin/
 ```
 
 > NOTE: The images are also prebuild and pushed on [Docker Hub](https://hub.docker.com/r/spiddy/coin/tags/)
+>
 > We've tagged two identical versions (`v1.0` and `v2.0`). We'll use them to simulate an upgrade later on.
 
 ## Run Coin
