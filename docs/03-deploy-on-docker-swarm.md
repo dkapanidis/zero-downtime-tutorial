@@ -71,6 +71,8 @@ $ repeat 10 echo $(curl -s localhost:8080)
 
 ## Activate Health Check
 
+We'll replace the existing stack with a [new configuration](../swarm/docker-stack-with-healthcheck.yaml) that includes health checks:
+
 ```shell
 $ docker stack deploy -c swarm/docker-stack-with-healthcheck.yaml zerodowntime
 Updating service zerodowntime_coin (id: tpvl6hes9myd6njp4envc3a1o)
