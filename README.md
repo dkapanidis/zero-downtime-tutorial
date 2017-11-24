@@ -14,4 +14,4 @@ This tutorial assumes you have a working Docker and Kubernetes instance.
 
 * [Prerequisites](./docs/01-prerequisites.md)
 * [Build Coin Images](./docs/02-build-coin-images.md)
-* []
+* [Run Status Page](./docs/03-run-status-page.md)

@@ -33,13 +33,16 @@ docker build -f images/coin/Dockerfile-v2.0 -t spiddy/coin:v2 images/coin/
 Run a coin app and expose it on port `:8080`
 
 ```shell
-docker run --name coin -d -p 8080:80 spiddy/coin:v1.0
+docker run --rm --name coin -d -p 8080:80 spiddy/coin:v1.0
 curl -v localhost:8080
 ```
 
-Clean up
+Clean up the running coin now, we'll restart it later using an orchestrator.
 
 ```shell
 docker stop coin
-docker rm coin
 ```
+
+> The container will be removed automatically when stopped, because we added the `--rm` flag set when started it.
+
+Next: [Run Status Page](./03-run-status-page.md)
