@@ -43,6 +43,6 @@ Clean up the running coin now, we'll restart it later using an orchestrator.
 docker stop coin
 ```
 
-> The container will be removed automatically when stopped, because we added the `--rm` flag set when started it.
+> The container will be auto-removed when stopped, because we added the `--rm` flag set when started it.
 
 Next: [Run Status Page](./03-run-status-page.md)
