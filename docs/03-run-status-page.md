@@ -14,7 +14,7 @@ docker run --rm --name statuspage -d -p 9000:9000 -e TARGET_URL=http://google.co
 
 > Status Page is prebuilt on [Docker Hub](https://hub.docker.com/r/spiddy/statuspage/)
 
-Open [http://localhost:9000](http://localhost:9000) on a browser, the status page will show the percentage of correct reponses from google.com in a graph.
+Open [http://localhost:9000](http://localhost:9000) on a browser, the status page will show the percentage of correct responses from google.com in a graph.
 
 Clean up the running instance
 

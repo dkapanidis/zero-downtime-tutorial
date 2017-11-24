@@ -1,0 +1,17 @@
+version: '3'
+services:
+  coin:
+    image: spiddy/coin:v1.0
+    ports:
+      - "8080:80"
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+  statuspage:
+    image: spiddy/statuspage
+    ports:
+      - "9000:9000"
+    environment:
+      - TARGET_URL=http://coin
