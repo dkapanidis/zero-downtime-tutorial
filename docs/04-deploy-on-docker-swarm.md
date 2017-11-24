@@ -46,3 +46,11 @@ Scale up the `coin` service
 ```shell
 docker service update zerodowntime_coin --replicas=20
 ```
+
+Cleanup
+
+```shell
+docker stack rm zerodowntime
+```
+
+Next: [Deploy on Kubernetes](./05-deploy-on-kubernetes.md)

@@ -21,3 +21,5 @@ Clean up the running instance
 ```shell
 docker stop statuspage
 ```
+
+Next: [Deploy on Docker Swarm](./04-deploy-on-docker-swarm.md)
