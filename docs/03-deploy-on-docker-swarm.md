@@ -38,19 +38,73 @@ s07in38bw4ec        zerodowntime_coin.2   spiddy/coin:v1.0    linuxkit-025000000
 su614xfba05h        zerodowntime_coin.3   spiddy/coin:v1.0    linuxkit-025000000001   Running             Running about a minute ago
 ```
 
+Get response from Coin at port :8080
+
+```shell
+$ curl localhost:8080
+500 - Bad luck, try flipping the coin again!
+```
+
+## Scale Up Coins
+
 Scale up the `coin` service
 
 ```shell
-docker service update zerodowntime_coin --replicas=5
+docker service update zerodowntime_coin --replicas=10
 ```
 
-Scale up the `coin` service
+Check output of Coin
 
 ```shell
-docker service update zerodowntime_coin --replicas=20
+$ repeat 10 echo $(curl -s localhost:8080)
+500 - Bad luck, try flipping the coin again!
+500 - Bad luck, try flipping the coin again!
+500 - Bad luck, try flipping the coin again!
+500 - Bad luck, try flipping the coin again!
+200 - You are a lucky lucky person!
+500 - Bad luck, try flipping the coin again!
+200 - You are a lucky lucky person!
+500 - Bad luck, try flipping the coin again!
+200 - You are a lucky lucky person!
+500 - Bad luck, try flipping the coin again!
 ```
 
-Cleanup
+## Activate Health Check
+
+```shell
+$ docker stack deploy -c swarm/docker-stack-with-healthcheck.yaml zerodowntime
+Updating service zerodowntime_coin (id: tpvl6hes9myd6njp4envc3a1o)
+Updating service zerodowntime_statuspage (id: mqbg34x9ltgs49rt93p1x3o7e)
+```
+
+## Upgrade Coin
+
+```shell
+docker service update zerodowntime_coin --image spiddy/coin:v2.0
+zerodowntime_coin
+overall progress: 2 out of 3 tasks
+1/3: running   [==================================================>]
+2/3: running   [==================================================>]
+3/3: starting  [============================================>      ]
+```
+
+Check output of Coin
+
+```shell
+$ repeat 10 echo $(curl -s localhost:8080)
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+```
+
+## Cleanup
 
 ```shell
 docker stack rm zerodowntime

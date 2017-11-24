@@ -50,7 +50,7 @@ Get response from Coin at port `:31000`
 
 ```shell
 $ curl 192.168.99.100:31000
-200 - You are a lucky lucky person!
+500 - Bad luck, try flipping the coin again!
 ```
 
 Open browser to [http://192.168.99.100:32000](http://192.168.99.100:32000)
