@@ -4,7 +4,7 @@
 
 ```shell
 eval $(minikube docker-env)
-docker build -t spiddy/coin images/coin/
+docker build -t spiddy/coin:v1.0 -t spiddy/coin:v2.0 images/coin/
 ```
 
 ## Deploy Coin & Status Page
