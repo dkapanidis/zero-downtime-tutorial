@@ -46,7 +46,14 @@ $ minikube ip
 192.168.99.100
 ```
 
-Open browser to [http://192.168.99:30000](http://192.168.99:32000)
+Get response from Coin at port `:31000`
+
+```shell
+$ curl 192.168.99.100:31000
+200 - You are a lucky lucky person!
+```
+
+Open browser to [http://192.168.99.100:32000](http://192.168.99.100:32000)
 
 ## Scale Up Coins
 
@@ -59,13 +66,33 @@ Check Pods
 
 ```shell
 $ kubectl get pods
-
+NAME                          READY     STATUS    RESTARTS   AGE
+coin-7895dcd8b8-2swck         1/1       Running   0          14s
+coin-7895dcd8b8-4gg56         1/1       Running   0          14s
+coin-7895dcd8b8-b54gh         1/1       Running   0          14s
+coin-7895dcd8b8-fmg6r         1/1       Running   0          14s
+coin-7895dcd8b8-h2s4g         1/1       Running   0          14s
+coin-7895dcd8b8-hmbzh         1/1       Running   0          14s
+coin-7895dcd8b8-j7k5j         1/1       Running   0          14s
+coin-7895dcd8b8-m5wmq         1/1       Running   0          14s
+coin-7895dcd8b8-mrb9t         1/1       Running   0          5m
+coin-7895dcd8b8-zk8b6         1/1       Running   0          14s
 ```
 
 Check output of Coin
 
 ```shell
-repeat 10 echo $(curl -s 192.168.99.100:31000)
+$ repeat 10 echo $(curl -s 192.168.99.100:31000)
+500 - Bad luck, try flipping the coin again!
+500 - Bad luck, try flipping the coin again!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
 ```
 
 ## Activate Health Checks to Coins
