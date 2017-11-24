@@ -1,9 +1,14 @@
-version: '3'
+version: '3.3'
 services:
   coin:
-    image: spiddy/coin:v1.0
+    image: spiddy/coin:v2.0
     ports:
       - "8080:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 3s
+      timeout: 5s
+      retries: 1
     deploy:
       replicas: 3
       update_config:

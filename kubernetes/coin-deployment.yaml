@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: coin
+  name: coin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coin
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: coin
+    spec:
+      containers:
+      - image: spiddy/coin
+        imagePullPolicy: IfNotPresent
+        name: coin
+        ports:
+        - containerPort: 80
+          protocol: TCP
