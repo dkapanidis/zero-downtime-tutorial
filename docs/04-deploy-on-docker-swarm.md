@@ -2,7 +2,7 @@
 
 Docker Swarm is the orchestrator of Docker containers.
 
-We've defined a stack on [docker-stack.yaml](../)
+We've defined a stack on [docker-stack.yaml](../swarm/docker-stack.yaml)
 
 ```shell
 docker stack deploy -c swarm/docker-stack.yaml zerodowntime
