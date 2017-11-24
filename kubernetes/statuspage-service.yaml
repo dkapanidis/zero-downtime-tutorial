@@ -8,6 +8,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
+    nodePort: 30000
     targetPort: 9000
   selector:
     app: statuspage

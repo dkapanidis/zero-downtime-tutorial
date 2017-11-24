@@ -8,6 +8,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
+    nodePort: 31000
     targetPort: 80
   selector:
     app: coin

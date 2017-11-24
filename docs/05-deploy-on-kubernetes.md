@@ -12,9 +12,9 @@ docker build -t spiddy/coin images/coin/
 The following components are created in Kubernetes
 
 * A [Coin Deployment](../kubernetes/coin-deployment.yaml) that manages the Coin Pods
-* A [Coin Service](../kubernetes/coin-service.yaml) that connects a Node Port to the Coin instances, load balancing them.
+* A [Coin Service](../kubernetes/coin-service.yaml) that exposes Coin instances to Node Port `:31000`, load balancing them.
 * A [Status Page Deployment](../kubernetes/statuspage-deployment.yaml) that manages the Status Page Pod
-* A [Status Page Service](../kubernetes/statuspage-service.yaml) that connects a Node Port to the Status Page instance.
+* A [Status Page Service](../kubernetes/statuspage-service.yaml) that exposes Status Page instance to Node Port `:32000`.
 
 ```shell
 kubectl create -f kubernetes/
@@ -34,9 +34,9 @@ Get the Services:
 ```shell
 $ kubectl get services
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-coin         NodePort    10.0.0.185   <none>        80:30367/TCP   40s
+coin         NodePort    10.0.0.185   <none>        80:31000/TCP   40s
 kubernetes   ClusterIP   10.0.0.1     <none>        443/TCP        16h
-statuspage   NodePort    10.0.0.146   <none>        80:32669/TCP   40s
+statuspage   NodePort    10.0.0.146   <none>        80:32000/TCP   40s
 ```
 
 Get the Minikube IP
@@ -46,7 +46,7 @@ $ minikube ip
 192.168.99.100
 ```
 
-Open browser to `http://MINIKUBE_IP:STATUSPAGE_PORT`
+Open browser to [http://192.168.99:30000](http://192.168.99:32000)
 
 ## Scale Up Coins
 
@@ -65,7 +65,7 @@ $ kubectl get pods
 Check output of Coin
 
 ```shell
-repeat 10 echo $(curl -s 192.168.99.100:30367)
+repeat 10 echo $(curl -s 192.168.99.100:31000)
 ```
 
 ## Activate Health Checks to Coins
@@ -89,5 +89,11 @@ statuspage-7656d9bfd6-qfwm9   1/1       Running   0          13m
 Check output of Coin
 
 ```shell
-repeat 10 echo $(curl -s 192.168.99.100:30367)
+repeat 10 echo $(curl -s 192.168.99.100:31000)
+```
+
+Cleanup
+
+```shell
+kubectl delete -f kubernetes
 ```
