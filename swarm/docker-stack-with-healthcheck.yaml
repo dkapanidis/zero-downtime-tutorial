@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   coin:
-    image: spiddy/coin:v2.0
+    image: spiddy/coin:v1.0
     ports:
       - "8080:80"
     healthcheck:

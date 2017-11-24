@@ -116,10 +116,45 @@ statuspage-7656d9bfd6-qfwm9   1/1       Running   0          13m
 Check output of Coin
 
 ```shell
-repeat 10 echo $(curl -s 192.168.99.100:31000)
+$ repeat 10 echo $(curl -s 192.168.99.100:31000)
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
 ```
 
-Cleanup
+## Upgrade Coin
+
+Let's upgrade the Coin to `v2.0`:
+
+```shell
+$ kubectl set image deployment coin 'coin=spiddy/coin:v2.0'
+deployment "coin" image updated
+```
+
+Check output of Coin
+
+```shell
+$ repeat 10 echo $(curl -s 192.168.99.100:31000)
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+200 - You are a lucky lucky person!
+```
+
+## Cleanup
 
 ```shell
 kubectl delete -f kubernetes

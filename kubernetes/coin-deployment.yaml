@@ -20,7 +20,7 @@ spec:
         app: coin
     spec:
       containers:
-      - image: spiddy/coin
+      - image: spiddy/coin:v1.0
         imagePullPolicy: IfNotPresent
         name: coin
         ports:
