@@ -14,6 +14,5 @@ This tutorial assumes you have a working Docker and Kubernetes instance.
 
 * [Prerequisites](./docs/01-prerequisites.md)
 * [Build Coin Images](./docs/02-build-coin-images.md)
-* [Run Status Page](./docs/03-run-status-page.md)
-* [Deploy on Docker Swarm](./docs/04-deploy-on-docker-swarm.md)
-* [Deploy on Kubernetes](./docs/05-deploy-on-kubernetes.md)
+* [Deploy on Docker Swarm](./docs/03-deploy-on-docker-swarm.md)
+* [Deploy on Kubernetes](./docs/04-deploy-on-kubernetes.md)

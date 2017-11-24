@@ -39,4 +39,4 @@ docker stop coin
 
 > The container will be auto-removed when stopped, because we added the `--rm` flag set when started it.
 
-Next: [Run Status Page](./03-run-status-page.md)
+Next: [Deploy on Docker Swarm](./03-deploy-on-docker-swarm.md)

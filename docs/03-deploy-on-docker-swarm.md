@@ -53,4 +53,4 @@ Cleanup
 docker stack rm zerodowntime
 ```
 
-Next: [Deploy on Kubernetes](./05-deploy-on-kubernetes.md)
+Next: [Deploy on Kubernetes](./04-deploy-on-kubernetes.md)
